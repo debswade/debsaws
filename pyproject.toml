@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "debsaws"
+version = "0.1.0"
+description = ""
+authors = ["debswade <deborah.wade@hivehome.com>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+repository = "https://github.com/debswade/debsaws"
+
+
+[tool.poetry.dependencies]
+python = "^2.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
