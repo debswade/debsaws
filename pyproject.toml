@@ -7,9 +7,8 @@ license = "GPL-3.0-or-later"
 readme = "README.md"
 repository = "https://github.com/debswade/debsaws"
 
-
 [tool.poetry.dependencies]
-python = "^2.7"
+python = "^3.8"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
