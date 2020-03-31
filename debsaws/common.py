@@ -2,7 +2,6 @@ import boto3
 import datetime
 from pathlib import Path
 import csv
-from config import dbuser
 
 hostname = socket.gethostname()
 sshusername = "debsbalm"
