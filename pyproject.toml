@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "debsaws"
-version = "0.1.2"
+version = "0.1.3"
 description = ""
 authors = ["debswade <deborah.wade@hivehome.com>"]
 license = "GPL-3.0-or-later"

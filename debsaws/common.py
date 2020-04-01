@@ -24,6 +24,7 @@ nowish = datetime.date.today()
 env = account
 secret_name = f"{account}/rds-users/{dbuser}"
 s3loc = f's3://{bucket_name}/visualisation/'
+region, instanceid, basedir, session = base_operating_premise()
 
 def base_operating_premise():
     if 'compute.internal' in hostname:
