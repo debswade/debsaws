@@ -5,7 +5,7 @@ region, instanceid, basedir, session = base_operating_premise()
 
 client = session.client('athena')
 
-def run_query(query):
+def run_query(query, athenadb, s3loc):
     response = client.start_query_execution(
         QueryString=query,
         QueryExecutionContext={
