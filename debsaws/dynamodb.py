@@ -4,11 +4,10 @@ import ast
 import decimal
 import threading
 import datetime
-from common import base_operating_premise, test_table, runner_table
+from debsaws.common import base_operating_premise
 from boto3.dynamodb.conditions import Key, Attr
 
 region, instanceid, basedir, session = base_operating_premise()
-migdir = basedir
 ec2_client = session.client('ec2')
 startTime = datetime.datetime.now()
 nowish = datetime.date.today()

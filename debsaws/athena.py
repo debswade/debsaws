@@ -1,6 +1,7 @@
 from __future__ import print_function
-from config import account, athenadb, s3loc
-from common import session
+from debsaws.common import base_operating_premise
+
+region, instanceid, basedir, session = base_operating_premise()
 
 client = session.client('athena')
 

@@ -1,0 +1,2 @@
+--extra-index-url https://dit-pypi-ro:1FpMOVv.ydLPY@bgchops.jfrog.io/bgchops/api/pypi/hiveleak-pypi/simple
+HC_AWS_IoT_Common==1.10

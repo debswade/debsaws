@@ -5,7 +5,7 @@ import os
 import hc_common.constants as const
 import hc_common.handler_utils as handler
 from botocore.exceptions import ClientError
-from common import base_operating_premise
+from debsaws.common import base_operating_premise
 
 region, instanceid, basedir, session = base_operating_premise()
 startTime = datetime.datetime.now()

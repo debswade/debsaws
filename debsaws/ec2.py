@@ -1,5 +1,5 @@
 import datetime
-from common import base_operating_premise
+from debsaws.common import base_operating_premise
 
 region, instanceid, basedir, session = base_operating_premise()
 ec2_client = session.client('ec2')

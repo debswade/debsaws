@@ -1,9 +1,8 @@
-from common import base_operating_premise
-
+from debsaws.common import base_operating_premise
 
 region, instanceid, basedir, session = base_operating_premise()
-asg_client = session.client("autoscaling")
 
+asg_client = session.client("autoscaling")
 
 def get_asg_detail(autoscalingroup):
     response = asg_client.describe_auto_scaling_groups(AutoScalingGroupNames=[autoscalingroup])
