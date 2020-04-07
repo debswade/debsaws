@@ -5,38 +5,30 @@ from pathlib import Path
 from os import getcwd
 from ec2_metadata import ec2_metadata
 import csv
-from config import dbuser
+from config import dbuser, account, project, \
+	athenadb, result_dir, source_table, dest_table, \
+	bucket_name, bucket_dir, sshusername, sshpkey, env
+
 
 hostname = gethostname()
-sshusername = "debsbalm"
-sshpkey = "~/.ssh/debsbalm.pub"
-
-project = "cb-prod-uk-athena"
-account = 'boilerdiag-prod'
-athenadb = 'biq_prod'
-result_dir = 's3_results'
-source_table = 'cb-prod-bosch-parameters'
-dest_table = 'cb-prod-params-poc'
-bucket_name = 'cb-prod-uk-athena-query-results'
 dummy_instanceid = 'i-0d88633bbd7362686'
 
 nowish = datetime.date.today()
-env = account
 secret_name = f"{account}/rds-users/{dbuser}"
 s3loc = f's3://{bucket_name}/visualisation/'
 
 def base_operating_premise():
-    if 'compute.internal' in hostname:
-        instanceid = ec2_metadata.instance_id
-        region = ec2_metadata.region
-        basedir = f'/home/ec2-user/{project}'
-        session = boto3.Session(region_name=region_name)
-    else:
-        instanceid = dummy_instanceid
-        region = 'eu-west-1'
-        basedir = getcwd()
-        session = boto3.Session(profile_name=account)
-    return region, instanceid, basedir, session
+	if 'compute.internal' in hostname:
+		instanceid = ec2_metadata.instance_id
+		region = ec2_metadata.region
+		basedir = f'/home/ec2-user/{project}'
+		session = boto3.Session(region_name=region)
+	else:
+		instanceid = dummy_instanceid
+		region = 'eu-west-1'
+		basedir = getcwd()
+		session = boto3.Session(profile_name=account)
+	return region, instanceid, basedir, session
 
 region, instanceid, basedir, session = base_operating_premise()
 
