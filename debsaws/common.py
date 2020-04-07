@@ -5,7 +5,7 @@ from pathlib import Path
 from os import getcwd
 from ec2_metadata import ec2_metadata
 import csv
-from debsaws.config import dbuser
+from config import dbuser
 
 hostname = gethostname()
 sshusername = "debsbalm"
