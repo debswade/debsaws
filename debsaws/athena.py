@@ -1,5 +1,6 @@
 from __future__ import print_function
 from debsaws.common import base_operating_premise
+from time import sleep
 
 region, instanceid, basedir, session = base_operating_premise()
 
