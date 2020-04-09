@@ -27,7 +27,7 @@ def base_operating_premise():
 		instanceid = dummy_instanceid
 		region = 'eu-west-1'
 		basedir = getcwd()
-		session = boto3.Session(profile_name=account)
+		session = boto3.Session(profile_name=account, region_name=region)
 	return region, instanceid, basedir, session
 
 region, instanceid, basedir, session = base_operating_premise()

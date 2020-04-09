@@ -37,3 +37,23 @@ def results_to_df(results):
 def get_status(QueryExecutionId):
     response = client.get_query_execution(QueryExecutionId = QueryExecutionId)
     return response
+
+
+def get_query_results(executionid):
+    jobstatus = get_status(executionid)
+    state = jobstatus['QueryExecution']['Status']['State']
+    # 'State': 'QUEUED' | 'RUNNING' | 'SUCCEEDED' | 'FAILED' | 'CANCELLED',
+    while state == 'RUNNING':
+        sleep(3)
+        jobstatus = get_status(executionid)
+        state = jobstatus[ 'QueryExecution' ][ 'Status' ][ 'State' ]
+
+    if state == 'FAILED':
+        fail_reason = jobstatus[ 'QueryExecution' ][ 'Status' ][ 'StateChangeReason' ]
+        return state, fail_reason
+
+    elif state =='SUCCEEDED':
+        state = jobstatus[ 'QueryExecution' ][ 'Status' ][ 'State' ]
+        s3location = jobstatus[ 'QueryExecution' ][ 'ResultConfiguration' ][ 'OutputLocation' ]
+        print(f' Wanna download: {s3location}')
+        return state,s3location
