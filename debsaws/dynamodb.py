@@ -241,8 +241,8 @@ def delete_item(table, Item):
     return response
 
 def batch_get_items_by_pk(table, pkname, listofitems):
-    dynamodb_table = dynamodb_client.Table(table, pkname)
-    response = dynamodb_table.batch_get_item(
+    # dynamodb_table = dynamodb_client.Table(table, pkname)
+    response = dynamodb_client.batch_get_item(
                     RequestItems={
                         table :
                             {'Keys': [{pkname: {'SS': [id for id in listofitems]}}]}
