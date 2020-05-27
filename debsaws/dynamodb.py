@@ -239,3 +239,11 @@ def delete_item(table, Item):
     dynamodb_table = dynamodb_resource.Table(table)
     response = dynamodb_table.delete_item(Key = Item )
     return response
+
+def batch_get_items_by_pk(table, pkname, Items):
+    dynamodb_table = dynamodb_client.Table(table, pkname)
+    results = dynamodb_table.batch_get_item(
+                    RequestItems={
+                        table :
+                            {'Keys': [{pkname: {'SS': [id for id in Items]}}]}
+                    })
