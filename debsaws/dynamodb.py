@@ -240,11 +240,11 @@ def delete_item(table, Item):
     response = dynamodb_table.delete_item(Key = Item )
     return response
 
-def batch_get_items_by_pk(table, pkname, listofitems):
-    # dynamodb_table = dynamodb_client.Table(table, pkname)
-    response = dynamodb_client.batch_get_item(
-                    RequestItems={
-                        table :
-                            {'Keys': [{pkname: {'SS': [id for id in listofitems]}}]}
-                    })
-    return response
+# def batch_get_items_by_pk(table, pkname, listofitems):
+#     # dynamodb_table = dynamodb_client.Table(table, pkname)
+#     response = dynamodb_client.batch_get_item(
+#                     RequestItems={
+#                         table :
+#                             {'Keys': [{pkname: {'SS': [id for id in listofitems]}}]}
+#                     })
+#     return response
